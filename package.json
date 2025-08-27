@@ -1,0 +1,14 @@
+{
+  "name": "r2-ig-yt-poster",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "post": "node src/index.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.637.0",
+    "axios": "^1.7.4",
+    "googleapis": "^143.0.0",
+    "p-limit": "^6.1.0"
+  }
+}
