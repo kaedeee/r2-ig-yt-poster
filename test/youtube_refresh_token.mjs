@@ -14,10 +14,15 @@ const oauth2Client = new google.auth.OAuth2(
   redirectUri
 );
 
-// 認可URLを出す
-const scopes = ["https://www.googleapis.com/auth/youtube.upload"];
+// ★ 広めの権限（どちらかでOK）
+// const scopes = ["https://www.googleapis.com/auth/youtube"]; // これ1本でもOK
+const scopes = [
+  "https://www.googleapis.com/auth/youtube.upload",
+  "https://www.googleapis.com/auth/youtube.readonly",
+];
 const url = oauth2Client.generateAuthUrl({
   access_type: "offline", // ★refresh_tokenをもらうために必須
+  prompt: "consent",
   scope: scopes,
 });
 
