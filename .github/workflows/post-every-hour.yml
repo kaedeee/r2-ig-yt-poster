@@ -35,7 +35,7 @@ jobs:
           YT_ACCOUNTS: ${{ secrets.YT_ACCOUNTS }}
 
           # --- options ---
-          POST_WINDOW_JST: "10-18"
-          YT_DAILY_LIMIT: "6"
+          POST_WINDOW_JST: ${{ secrets.POST_WINDOW_JST }}
+          YT_DAILY_LIMIT: ${{ secrets.YT_DAILY_LIMIT }}
           # DRY_RUN: "1"
         run: npm run post
