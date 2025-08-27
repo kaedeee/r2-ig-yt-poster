@@ -2,7 +2,7 @@ name: R2 → IG/YouTube hourly
 
 on:
   schedule:
-    # JST 10:00-18:00 を毎時 → UTC 01:00-09:00
+    # JST 10:00-23:59 を毎時 → UTC 01:00-09:00
     - cron: "0 1-9 * * *"
   workflow_dispatch: {}
 
@@ -35,7 +35,7 @@ jobs:
           YT_ACCOUNTS: ${{ secrets.YT_ACCOUNTS }}
 
           # --- options ---
-          POST_WINDOW_JST: "1-18"
-          YT_DAILY_LIMIT: "6"
+          POST_WINDOW_JST: "10-23"
+          YT_DAILY_LIMIT: "50"
           # DRY_RUN: "1"
         run: npm run post
