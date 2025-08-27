@@ -13,8 +13,9 @@ export async function postInstagram({
     {
       params: {
         access_token: accessToken,
-        media_type: "VIDEO",
+        media_type: "REELS",
         video_url: mediaUrl,
+        thumb_offset: 2500,
         caption,
       },
       timeout: 60000,
