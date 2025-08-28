@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating
+
 export async function postInstagram({
   igUserId,
   accessToken,
@@ -15,8 +17,11 @@ export async function postInstagram({
         access_token: accessToken,
         media_type: "REELS",
         video_url: mediaUrl,
-        thumb_offset: 2500,
+        audio_name: "プロフは見ちゃダメ！",
+        // collaborators: ["kaedeee_buzz"],
         caption,
+        share_to_feed: false,
+        thumb_offset: 2500,
       },
       timeout: 60000,
     }

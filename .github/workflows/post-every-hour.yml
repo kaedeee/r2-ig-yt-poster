@@ -2,8 +2,8 @@ name: R2 → IG/YouTube hourly
 
 on:
   schedule:
-    # JST 10:00-23:59 を毎時 → UTC 01:00-09:00
-    - cron: "0 1-9 * * *"
+    # JST 10:00-23:59 を毎30分 → UTC
+    - cron: "0,30 1-14 * * *"
   workflow_dispatch: {}
 
 jobs:
