@@ -3,8 +3,12 @@ name: R2 → IG/YouTube hourly
 on:
   schedule:
     # JST 10:00-23:59 → UTC 1:00-14:59
+    # 毎時0分、20分、40分に実行
     - cron: "0,20,40 1-14 * * *"
   workflow_dispatch: {}
+  # デバッグ用：push時に実行（開発中のみ使用）
+  push:
+    branches: [ main ]
 
 jobs:
   post:
