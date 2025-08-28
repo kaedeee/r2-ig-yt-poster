@@ -30,7 +30,7 @@ export async function uploadYouTube({
   sourceUrl,
   title,
   description,
-  privacyStatus = "public",
+  privacyStatus = "unlisted",
   dailyLimit = 6,
 }) {
   const oauth2Client = new google.auth.OAuth2(clientId, clientSecret);

@@ -182,7 +182,7 @@ async function main() {
         sourceUrl: url,
         title: ytTitle,
         description: ytDescription,
-        privacyStatus: "unlisted",
+        privacyStatus: "public",
         dailyLimit: parseInt(YT_DAILY_LIMIT, 10),
       });
       ytOk = ytRes.ok;
