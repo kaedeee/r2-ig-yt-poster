@@ -8,7 +8,7 @@ on:
   workflow_dispatch: {}
   # デバッグ用：push時に実行（開発中のみ使用）
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   post:
