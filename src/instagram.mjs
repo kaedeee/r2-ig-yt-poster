@@ -31,7 +31,7 @@ export async function postInstagram({
   let status = "IN_PROGRESS";
   const start = Date.now();
   while (status === "IN_PROGRESS") {
-    await new Promise((r) => setTimeout(r, 5000));
+    await new Promise((r) => setTimeout(r, 2000));
     const q = await axios.get(
       `https://graph.facebook.com/v20.0/${creationId}`,
       {
@@ -46,6 +46,11 @@ export async function postInstagram({
   if (status !== "FINISHED") {
     throw new Error(`IG: container status ${status}`);
   }
+
+  const processingTime = Math.round((Date.now() - start) / 1000);
+  console.log(
+    `IG: Container processing completed in ${processingTime} seconds`
+  );
 
   // 3) publish
   const pub = await axios.post(
