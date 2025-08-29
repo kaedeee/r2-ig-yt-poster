@@ -3,7 +3,7 @@ name: R2 → IG/YouTube hourly
 on:
   schedule:
     # JST 10:00-23:59 → UTC 1:00-14:59
-    - cron: "0,10,20,30,40,50 1-14 * * *"
+    - cron: "*/10 1-14 * * *"
   workflow_dispatch: {}
   # デバッグ用：push時に実行（開発中のみ使用）
   push:
@@ -14,10 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: Print times
+        run: |
+          echo "Now UTC: $(date -u)"
+          echo "Now JST: $(TZ=Asia/Tokyo date)"
+          echo "Event: ${{ github.event_name }}"
+          echo "Schedule expr: ${{ github.event.schedule }}"
+
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
       - run: npm ci
 
       - name: Run poster
